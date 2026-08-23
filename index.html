@@ -1,618 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O que é Inteligência Artificial? (Explicado simples) — CODEX BLOG</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@400;500;700;800;900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Blog - Tecnologia e IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para a página inicial */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
+        header {
+            background: #111;
+            border-bottom: 1px solid #222;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header p {
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #222;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+
+        .article-card h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h2 a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .article-card h2 a:hover {
+            color: #00d4ff;
+        }
+
+        .article-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .article-excerpt {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #00d4ff;
+            color: #000;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #222;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
 <body>
 
-  <div class="reading-progress" id="progress"></div>
-  <div id="fluid-root"></div>
-  <div class="grain"></div>
-
-  <div class="content-layer">
-
-    <!-- ===== NAVIGATION (N5 Floating Pill) ===== -->
-    <nav class="nav">
-      <div class="nav__inner">
-        <a href="#" class="nav__logo">
-          <span class="nav__logo-mark"></span>
-          <span>CODEX // IA</span>
-        </a>
-        <div class="nav__menu">
-          <a href="#intro">Introdução</a>
-          <a href="#pilars">3 Pilares</a>
-          <a href="#examples">Exemplos</a>
-          <a href="#comments" class="nav__link">
-            Comentários
-            <span class="nav__badge" id="nav-comment-count"></span>
-          </a>
-          <a href="#cta">Newsletter</a>
-        </div>
-        <a href="#cta" class="nav__cta">
-          <span>Assinar Blog</span>
-          <span class="nav__cta-arrow">→</span>
-        </a>
-      </div>
-    </nav>
-
-    <!-- ===== STATUS BAR ===== -->
-    <div class="status-bar">
-      <span>PUBLICADO · 16/08/2026</span>
-      <span>TEMPO DE LEITURA · 8 MIN</span>
-      <span>CATEGORIA · INTELIGÊNCIA ARTIFICIAL</span>
-      <span>NÍVEL · INICIANTE</span>
-    </div>
-
-    <!-- ===== HERO ===== -->
-    <header class="hero">
-      <div class="hero__grid">
-        <div class="hero__left">
-          <span class="hero__tag hero__tag--accent">#inteligencia-artificial</span>
-
-          <h1 class="hero__title">
-            O que é
-            <span class="accent">Inteligência</span>
-            Artificial?
-          </h1>
-
-          <p class="hero__sub">
-            Entenda de forma clara e sem jargões técnicos o que é IA,
-            como funciona e por que está transformando o mundo.
-          </p>
-
-          <div class="hero__info">
-            <div class="hero__info-item">
-              <span class="hero__info-label">AUTOR</span>
-              <span>Equipe CodeX</span>
-            </div>
-            <div class="hero__info-item">
-              <span class="hero__info-label">PUBLICADO</span>
-              <span>16 de Ago, 2026</span>
-            </div>
-            <div class="hero__info-item">
-              <span class="hero__info-label">LEITURA</span>
-              <span>8 minutos</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero__right">
-          <div class="hero__image-wrap">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/0e496a68d-d772-4425-8f1a-7d5a7ee1ddfb2380.png"
-              alt="Representação abstrata de um cérebro com conexões neurais digitais" class="hero__image">
-            <div class="hero__image-tag">
-              <span class="tag-label">COVER · 01</span>
-              <span class="tag-label">REDE NEURAL / ABSTRATA</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <header>
+        <h1>Codex Blog</h1>
+        <p>Tecnologia, Inteligência Artificial e Telecomunicações</p>
     </header>
 
-    <!-- ===== ARTICLE: INTRODUÇÃO ===== -->
-    <article class="article-body" id="intro">
+    <main>
+        <h2 class="section-title">Artigos Recentes</h2>
 
-      <h2 data-num="01 / INTRODUÇÃO">Você já usou IA hoje?</h2>
-
-      <p class="drop-cap">Provavelmente sim, e mais de uma vez. Quando o Netflix sugere um filme que combina exatamente
-        com seu gosto, quando o Spotify cria uma playlist perfeita para sua tarde, ou quando o Google Maps encontra uma
-        rota mais rápida para evitar o trânsito — isso é Inteligência Artificial trabalhando nos bastidores.</p>
-
-      <p>Se você usa filtros de spam no Gmail, fala com a Siri, ou rola o feed do Instagram, a IA está lá, processando
-        dados para tornar sua experiência mais fluida. Ela já não é mais ficção científica ou algo restrito a
-        laboratórios de tecnologia — é parte invisível, mas essencial, da nossa rotina.</p>
-
-      <p>Neste artigo, vou explicar o que é IA de forma simples, <strong>sem termos técnicos complexos</strong>. Vamos
-        desmistificar como ela funciona, quais são seus pilares e por que todo mundo está falando sobre isso agora.
-        <span class="hl">Vamos lá?</span>
-      </p>
-
-      <div class="inline-image">
-        <img
-          src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/2e496a68d-d772-4425-8f1a-7d5a7ee1ddfb9970.png"
-          alt="Pessoa usando assistente de voz no smartphone">
-        <div class="inline-image__caption">FIG. 01 — A IA está presente em interações cotidianas que muitas vezes não
-          percebemos.</div>
-      </div>
-
-      <h2 data-num="02 / DEFINIÇÃO">O que é IA? (Simples assim)</h2>
-
-      <p>De forma direta: <strong>IA é um computador aprendendo a fazer tarefas que normalmente exigiriam inteligência
-          humana.</strong> Reconhecer uma foto, entender a linguagem falada, recomendar uma música — tudo isso exige
-        "inteligência".</p>
-
-      <p>Para entender melhor, veja a diferença fundamental entre a programação clássica e a IA:</p>
-
-      <div class="compare-block">
-        <div class="compare-side compare-side--bad">
-          <span class="compare-label">MÉTODO TRADICIONAL</span>
-          <h3 class="compare-title">Programação Clássica</h3>
-          <p class="compare-desc">O programador escreve regras fixas: "Se A acontecer, faça B". O computador segue as
-            instruções à risca, sem aprender nada novo. Ele só sabe o que foi explicitamente ensinado.</p>
-        </div>
-        <div class="compare-divider"></div>
-        <div class="compare-side compare-side--good">
-          <span class="compare-label">MÉTODO MODERNO</span>
-          <h3 class="compare-title">Inteligência Artificial</h3>
-          <p class="compare-desc">Em vez de regras fixas, damos ao computador muitos exemplos. Ele encontra os padrões
-            por conta própria e cria suas próprias regras internas para resolver problemas futuros.</p>
-        </div>
-      </div>
-
-    </article>
-
-    <!-- ===== 3 PILARES (STACKED CARDS) ===== -->
-    <section class="pillars-section" id="pilars">
-      <div class="pillars-header">
-        <div class="section-num">03 / OS PILARES</div>
-        <h2>Os 3 Pilares<br>da IA Moderna.</h2>
-        <p>Para a IA funcionar, ela precisa de três elementos interligados. Sem um deles, o sistema simplesmente não se
-          sustenta.</p>
-      </div>
-
-      <div id="cardstack">
-        <div id="cardstack-pin">
-
-          <div class="cardstack__card" data-card="0">
-            <div class="cardstack__media">
-              <img
-                src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/7e496a68d-d772-4425-8f1a-7d5a7ee1ddfb3124.png"
-                alt="Fluxo de dados binários e visualização de código">
-              <div class="cardstack__media-label">PILLAR · 01</div>
-            </div>
-            <div class="cardstack__body">
-              <div class="cardstack__top">
-                <div class="cardstack__num">PILLAR 01 / DATA</div>
-                <div class="cardstack__tag">COMBUSTÍVEL</div>
-              </div>
-              <h3 class="cardstack__title">
-                Dados
-                <span class="en">O COMBUSTÍVEL</span>
-              </h3>
-              <p class="cardstack__desc">Dados são a matéria-prima. Incluem textos, imagens, cliques, localização GPS,
-                sensores de smartwatches — tudo é informação. Quanto mais dados de qualidade a IA tem para estudar, melhor
-                ela aprende. Sem dados, a IA é como um carro sem gasolina.</p>
-              <div class="cardstack__analogy">"Uma criança precisa ver milhares de gatos para reconhecer um gato. A IA
-                também."</div>
-            </div>
-          </div>
-
-          <div class="cardstack__card" data-card="1">
-            <div class="cardstack__media">
-              <img
-                src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/0e496a68d-d772-4425-8f1a-7d5a7ee1ddfb8216.png"
-                alt="Placa de circuito impresso abstrata representando algoritmos">
-              <div class="cardstack__media-label">PILLAR · 02</div>
-            </div>
-            <div class="cardstack__body">
-              <div class="cardstack__top">
-                <div class="cardstack__num">PILLAR 02 / ALGORITHM</div>
-                <div class="cardstack__tag">MOTOR</div>
-              </div>
-              <h3 class="cardstack__title">
-                Algoritmos
-                <span class="en">O MOTOR</span>
-              </h3>
-              <p class="cardstack__desc">Algoritmos são as regras matemáticas que encontram padrões nos dados e decidem
-                como a informação é processada (ex: redes neurais, árvores de decisão). São apenas nomes diferentes para
-                motores de aprendizado.</p>
-              <div class="cardstack__analogy">"Se os dados são a gasolina, o algoritmo é o motor que transforma gasolina
-                em movimento."</div>
-            </div>
-          </div>
-
-          <div class="cardstack__card" data-card="2">
-            <div class="cardstack__media">
-              <img
-                src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/5e496a68d-d772-4425-8f1a-7d5a7ee1ddfb4929.png"
-                alt="Data center com servidores de alta performance">
-              <div class="cardstack__media-label">PILLAR · 03</div>
-            </div>
-            <div class="cardstack__body">
-              <div class="cardstack__top">
-                <div class="cardstack__num">PILLAR 03 / COMPUTE</div>
-                <div class="cardstack__tag">ENERGIA</div>
-              </div>
-              <h3 class="cardstack__title">
-                Computação
-                <span class="en">A ENERGIA</span>
-              </h3>
-              <p class="cardstack__desc">Processar bilhões de dados exige um poder de computação brutal. É o poder de
-                processamento necessário (GPUs e a nuvem) para lidar com essa escala. Sem computação em larga escala,
-                treinar uma IA como o ChatGPT levaria décadas em um computador normal.</p>
-              <div class="cardstack__analogy">"É a eletricidade que faz o motor girar e colocar o carro para andar."
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTINUAÇÃO DO ARTIGO ===== -->
-    <article class="article-body">
-
-      <h2 data-num="04 / TIPOS">Tipos Principais de IA</h2>
-
-      <p>Nem toda IA é igual. Os pesquisadores dividem a Inteligência Artificial em três níveis de complexidade. Hoje,
-        estamos vivendo apenas no primeiro.</p>
-
-      <div class="types-grid">
-        <div class="type-card">
-          <div class="type-card__num">TIPO 01</div>
-          <h3 class="type-card__title">
-            IA Estreita
-            <span class="en">ANI — Artificial Narrow Intelligence</span>
-          </h3>
-          <div class="type-card__status active">● O QUE TEMOS HOJE</div>
-          <p class="type-card__desc">Especializada em uma única tarefa. O ChatGPT é excelente em gerar texto, mas não
-            sabe dirigir um carro. O reconhecimento facial do seu celular é perfeito, mas não sabe jogar xadrez. Toda IA
-            atual é estreita.</p>
-        </div>
-        <div class="type-card">
-          <div class="type-card__num">TIPO 02</div>
-          <h3 class="type-card__title">
-            IA Geral
-            <span class="en">AGI — Artificial General Intelligence</span>
-          </h3>
-          <div class="type-card__status">○ NÍVEL HUMANO (FUTURO)</div>
-          <p class="type-card__desc">Uma IA capaz de aprender qualquer tarefa que um humano consegue. Ainda não existe.
-            É o "Santo Graal" da pesquisa em IA e o foco de empresas como OpenAI e DeepMind. Alguns dizem que estamos a
-            décadas, outros a poucos anos.</p>
-        </div>
-        <div class="type-card">
-          <div class="type-card__num">TIPO 03</div>
-          <h3 class="type-card__title">
-            Superinteligência
-            <span class="en">ASI — Artificial Superintelligence</span>
-          </h3>
-          <div class="type-card__status">○ ACIMA DO HUMANO (FICÇÃO)</div>
-          <p class="type-card__desc">Uma IA que supera a inteligência humana em absolutamente tudo — criatividade,
-            ciência, sabedoria social. Por enquanto, isso pertence ao reino da ficção científica e filmes de Hollywood,
-            como "Ex Machina" ou "Her".</p>
-        </div>
-      </div>
-
-      <h2 data-num="05 / COMPARAÇÃO">Machine Learning vs Deep Learning</h2>
-
-      <p>Você provavelmente já ouviu esses dois termos. Eles não são a mesma coisa, mas estão conectados como
-        matrioscas: a IA é o conceito mais amplo, o Machine Learning (ML) é uma ramo da IA, e o Deep Learning (DL) é um
-        ramo do ML.</p>
-
-      <div class="split-compare">
-        <div class="split-side">
-          <div class="split-side__icon">ML</div>
-          <h3 class="split-side__title">Machine Learning</h3>
-          <p class="split-side__analogy">Analogia: Ensinar a receita passo a passo.</p>
-          <p class="split-side__desc">No ML tradicional, o cientista de dados extrai características importantes dos
-            dados manualmente. Se quer ensinar a IA a reconhecer um gato, o programador diz: "olhe o formato das
-            orelhas, o tamanho do focinho". A IA então usa essas regras para classificar a imagem.</p>
-        </div>
-        <div class="split-side">
-          <div class="split-side__icon">DL</div>
-          <h3 class="split-side__title">Deep Learning</h3>
-          <p class="split-side__analogy">Analogia: Deixar o chef criar a receita sozinho.</p>
-          <p class="split-side__desc">No Deep Learning, você não diz o que procurar. Você joga 100 mil fotos de gatos na
-            rede neural e ela mesma descobre o que faz um gato ser um gato. É mais autônomo, poderoso, mas exige muito
-            mais dados e computação. O ChatGPT é puramente Deep Learning.</p>
-        </div>
-      </div>
-
-      <h2 data-num="06 / IMPACTO">Por Que Isso Importa Agora?</h2>
-
-      <p>A IA existe como conceito desde os anos 1950. Por que ela explodiu apenas nos últimos 10 anos? A resposta é uma
-        palavra: <span class="hl">convergência</span>.</p>
-
-      <p>Finalmente temos os três pilares alinhados: geramos dados em escala astronômica (internet, smartphones),
-        desenvolvemos algoritmos muito melhores (redes neurais profundas) e construímos computadores poderosos o
-        suficiente (GPUs, nuvem). Esse cruzamento histórico tornou a IA uma realidade disruptiva.</p>
-
-      <p>O impacto é real e acontece agora:</p>
-      <ul>
-        <li><strong>No trabalho:</strong> Automação de tarefas repetitivas, análise de dados em segundos, escrita de
-          relatórios.</li>
-        <li><strong>Na educação:</strong> Tutores personalizados que se adaptam ao ritmo de cada aluno.</li>
-        <li><strong>Na saúde:</strong> Diagnósticos precoces de doenças em exames de imagem com precisão superior à
-          humana.</li>
-        <li><strong>Na criatividade:</strong> Geração de arte, música, roteiros e código de programação.</li>
-      </ul>
-
-    </article>
-
-    <!-- ===== EXEMPLOS PRÁTICOS (PARALLAX) ===== -->
-    <section class="parallax-section" id="examples">
-      <div class="parallax-header">
-        <div class="section-num">06 / NO DIA A DIA</div>
-        <h2>Exemplos Práticos<br>que Você Já Usa.</h2>
-        <p>A IA não é o futuro. É o presente. Aqui estão aplicações que provavelmente você usou nas últimas 24 horas.
-        </p>
-      </div>
-
-      <div id="parallax-strips">
-        <div id="parallax-top" class="parallax-row">
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/6e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5439.png"
-              alt="Interface da Netflix em uma TV">
-            <div class="parallax-item__label">RECOMENDAÇÃO · NETFLIX</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/2e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5569.png"
-              alt="Smart Speaker Alexa Echo Dot">
-            <div class="parallax-item__label">ASSISTENTE · VOZ</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/1e496a68d-d772-4425-8f1a-7d5a7ee1ddfb4690.png"
-              alt="App de tradução no smartphone">
-            <div class="parallax-item__label">TRADUÇÃO · DEEPL</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/0e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5299.png"
-              alt="Interface do Gmail com filtro de spam">
-            <div class="parallax-item__label">FILTRO · SPAM</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/3e496a68d-d772-4425-8f1a-7d5a7ee1ddfb8046.png"
-              alt="Navegação GPS no celular">
-            <div class="parallax-item__label">NAVEGAÇÃO · WAZE</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/4e496a68d-d772-4425-8f1a-7d5a7ee1ddfb9195.png"
-              alt="Pessoa rolando feed do Instagram/TikTok">
-            <div class="parallax-item__label">FEED · TIKTOK</div>
-          </div>
-        </div>
-        <div id="parallax-bottom" class="parallax-row parallax-row--bottom">
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/1e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5373.png"
-              alt="Interface do Spotify Playlist">
-            <div class="parallax-item__label">MÚSICA · SPOTIFY</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/2e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5278.png"
-              alt="Reconhecimento facial Face ID iPhone">
-            <div class="parallax-item__label">RECONHECIMENTO · FACIAL</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/3e496a68d-d772-4425-8f1a-7d5a7ee1ddfb5172.png"
-              alt="Interface de chatbot IA no celular">
-            <div class="parallax-item__label">TEXTO · CHATGPT</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/3e496a68d-d772-4425-8f1a-7d5a7ee1ddfb8062.png"
-              alt="Arte digital abstrata gerada por IA">
-            <div class="parallax-item__label">ARTE · MIDJOURNEY</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/4e496a68d-d772-4425-8f1a-7d5a7ee1ddfb9792.png"
-              alt="Interior do Tesla com piloto automático">
-            <div class="parallax-item__label">DIREÇÃO · TESLA</div>
-          </div>
-          <div class="parallax-item">
-            <img
-              src="https://image.qwenlm.ai/public_source/e293c0c9-a229-400b-b972-14d4b1ca2b19/2e496a68d-d772-4425-8f1a-7d5a7ee1ddfb4400.png"
-              alt="Segurança bancária digital e detecção de fraude">
-            <div class="parallax-item__label">FRAUDE · BANCO</div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        style="max-width: var(--max-width-reading); margin: clamp(2rem, 4vw, 3rem) auto 0; padding: 0 var(--container-padding);">
-        <div class="examples-list">
-          <div class="example-row">
-            <div class="example-row__num">01</div>
-            <div class="example-row__title">Recomendações Personalizadas</div>
-            <div class="example-row__cat">CONTEÚDO</div>
-            <div class="example-row__tools">Netflix · YouTube · TikTok</div>
-          </div>
-          <div class="example-row">
-            <div class="example-row__num">02</div>
-            <div class="example-row__title">Assistentes Virtuais</div>
-            <div class="example-row__cat">VOZ</div>
-            <div class="example-row__tools">Siri · Alexa · Google</div>
-          </div>
-          <div class="example-row">
-            <div class="example-row__num">03</div>
-            <div class="example-row__title">Tradução em Tempo Real</div>
-            <div class="example-row__cat">LINGUAGEM</div>
-            <div class="example-row__tools">Google Tradutor · DeepL</div>
-          </div>
-          <div class="example-row">
-            <div class="example-row__num">04</div>
-            <div class="example-row__title">Filtros e Moderação</div>
-            <div class="example-row__cat">SEGURANÇA</div>
-            <div class="example-row__tools">Gmail Spam · Instagram</div>
-          </div>
-          <div class="example-row">
-            <div class="example-row__num">05</div>
-            <div class="example-row__title">Navegação e Rotas</div>
-            <div class="example-row__cat">MOBILIDADE</div>
-            <div class="example-row__tools">Waze · Google Maps</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ARTIGO: PRÓXIMOS PASSOS ===== -->
-    <article class="article-body">
-
-      <h2 data-num="07 / AÇÃO">Próximos Passos para Você</h2>
-
-      <p>Não basta entender a IA — é preciso usá-la. Aqui está um plano de ação simples para não ficar para trás:</p>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-card__num">01</div>
-          <h3 class="step-card__title">Testar</h3>
-          <p class="step-card__desc">Crie contas gratuitas no ChatGPT, Bing Chat (Copilot) e Google Gemini. Faça
-            perguntas do dia a dia, peça para resumir textos, escrever e-mails. A melhor forma de entender é colocando a
-            mão na massa.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-card__num">02</div>
-          <h3 class="step-card__title">Aprender</h3>
-          <p class="step-card__desc">Estude o básico de "Prompt Engineering" — a arte de fazer as perguntas certas para
-            a IA. Saber conversar com a máquina é a nova habilidade mais valiosa da década, mais importante que saber
-            programar.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-card__num">03</div>
-          <h3 class="step-card__title">Acompanhar</h3>
-          <p class="step-card__desc">A tecnologia muda semanalmente. Assine newsletters de tecnologia confiáveis (como a
-            deste blog) para se manter atualizado sem ser enterrado por informação excessiva.</p>
-        </div>
-      </div>
-
-      <h2 data-num="08 / RESUMO">Conclusão</h2>
-
-      <p>Em três pontos diretos:</p>
-      <ul>
-        <li><strong>IA é um computador aprendendo com dados,</strong> não seguindo regras fixas.</li>
-        <li><strong>Ela já está em todo lugar</strong> — de recomendações de filme a diagnósticos médicos.</li>
-        <li><strong>Não é mágica, é matemática poderosa</strong> apoiada por dados e computação.</li>
-      </ul>
-
-    </article>
-
-    <!-- ===== CTA / NEWSLETTER ===== -->
-    <section class="booking" id="cta">
-      <div class="booking__inner">
-        <div class="booking__badge">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <path id="circle-path" d="M 100,100 m -82,0 a 82,82 0,1,1,164,0 a 82,82 0,1,1,-164,0" />
-            </defs>
-            <text font-family="'Inter', sans-serif" font-size="10.5" font-weight="600" letter-spacing="3.5"
-              fill="var(--color-silver)">
-              <textPath href="#circle-path">ASSINE A NEWSLETTER · INTELIGÊNCIA ARTIFICIAL · ASSINE · </textPath>
-            </text>
-          </svg>
-          <div class="booking__badge-inner">ENTRAR</div>
+        <!-- CARTÃO DO NOVO ARTIGO -->
+        <div class="article-card">
+            <span class="badge">NOVO</span>
+            <h2><a href="artigo-2g-5g-ia.html">Do 2G ao 5G (e além): Como a IA está acelerando a chegada do 6G</a></h2>
+            <span class="article-date">Publicado em 24 de Agosto, 2026</span>
+            <p class="article-excerpt">A evolução das redes móveis representa um salto exponencial em complexidade. Descubra como a IA deixou de ser ferramenta auxiliar para se tornar o núcleo das redes 5G e o que esperar do 6G nativo.</p>
+            <a href="artigo-2g-5g-ia.html" class="read-more">Ler artigo completo →</a>
         </div>
 
-        <h2 class="booking__title">
-          Quer aprender a usar IA<br>
-          no <span class="accent">dia a dia</span>?
-        </h2>
-
-        <p class="booking__sub">
-          Assine a newsletter do CodeX e receba toda semana um guia prático, novos tutoriais e as novidades do mundo da
-          IA explicadas sem jargão. É grátis.
-        </p>
-
-        <form class="booking__form" id="subscribe-form">
-          <input type="email" id="subscribe-email" name="email" placeholder="Seu melhor e-mail" required>
-          <button type="submit" id="subscribe-btn">
-            <span>Assinar</span>
-          </button>
-        </form>
-
-        <div id="subscribe-feedback" class="subscribe-feedback" aria-live="polite"></div>
-
-        <a href="#comments" class="booking__comment-cta">
-          <strong>Deixe sua resposta</strong>
-          Qual Inteligência Artificial você mais usa hoje? Compartilhe nos comentários abaixo. ↓
-        </a>
-      </div>
-    </section>
-
-    <!-- ===== COMMENTS SECTION ===== -->
-    <section class="comments" id="comments">
-      <div class="comments__inner">
-        <div class="comments__header">
-          <h2>Comentários</h2>
-          <p class="comments__sub">Compartilhe sua opinião sobre o artigo. A IA que você usa mais no dia a dia? Conte!</p>
+        <!-- CARTÃO DO PRIMEIRO ARTIGO -->
+        <div class="article-card">
+            <h2><a href="index1.html">Você já usou IA hoje? Entenda os 3 Pilares da Tecnologia Moderna</a></h2>
+            <span class="article-date">Artigo anterior</span>
+            <p class="article-excerpt">Uma introdução descomplicada sobre o que é Inteligência Artificial, desmistificando seus pilares (Dados, Algoritmos e Computação) e como ela já está presente no nosso dia a dia.</p>
+            <a href="index1.html" class="read-more">Ler artigo completo →</a>
         </div>
 
-        <form class="comments__form" id="comment-form">
-          <div class="comments__form-row">
-            <input type="text" id="comment-name" name="name" placeholder="Seu nome" required>
-            <input type="email" id="comment-email" name="email" placeholder="Seu e-mail" required>
-          </div>
-          <textarea id="comment-text" name="comment" placeholder="Escreva seu comentário..." rows="3" required></textarea>
-          <button type="submit" class="comments__submit">
-            <span>Publicar Comentário</span>
-          </button>
-        </form>
+    </main>
 
-        <div class="comments__list" id="comments-list">
-          <div class="comments__empty">
-            <span>Seja o primeiro a comentar!</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== FOOTER (Ft5 Statement) ===== -->
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <h3>CODEX<span class="dot">.</span></h3>
-          <p>Um blog sobre tecnologia, dados e inteligência artificial, explicado de forma simples para humanos
-            curiosos.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Tópicos</h4>
-          <ul>
-            <li><a href="#">Inteligência Artificial</a></li>
-            <li><a href="#">Machine Learning</a></li>
-            <li><a href="#">ChatGPT</a></li>
-            <li><a href="#">Produtividade</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Blog</h4>
-          <ul>
-            <li><a href="#">Últimas Publicações</a></li>
-            <li><a href="#">Arquivo</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contato</h4>
-          <ul>
-            <li><a href="#">Newsletter</a></li>
-            <li><a href="#">Parcerias</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 CODEX BLOG · TODOS OS DIREITOS RESERVADOS</span>
-        <span>FEITO COM DADOS E CAFÉ · PARAUAPEBAS / BR</span>
-      </div>
+    <footer>
+        <p>&copy; 2026 Codex Blog. Todos os direitos reservados.</p>
     </footer>
 
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.13/dist/lenis.min.js"></script>
-  <script src="script.js"></script>
 </body>
-
 </html>
