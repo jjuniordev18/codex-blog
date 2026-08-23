@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os 3 Pilares da Inteligência Artificial | CodeX // IA</title>
+    <style>
+        /* Reset e Variáveis de Cor (Elegantes e Agradáveis) */
+        :root {
+            --bg-color: #0B1120; /* Fundo principal escuro */
+            --card-bg: #161B2E; /* Fundo de cards/boxes */
+            --header-footer-bg: #070B16; /* Fundo do header/footer */
+            --text-color: #E2E8F0; /* Texto principal */
+            --text-muted: #94A3B8; /* Texto secundário */
+            --primary-color: #3B82F6; /* Azul vibrante */
+            --primary-hover: #2563EB;
+            --border-color: #1E293B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Cabeçalho (Header) */
+        header {
+            background-color: var(--header-footer-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .btn-assinar {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-assinar:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Container do Artigo */
+        .article-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Imagens */
+        .article-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Caixas de Destaque */
+        .highlight-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .highlight-box strong {
+            color: #FFFFFF;
+        }
+
+        /* Botão Voltar */
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            padding: 12px 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--card-bg);
+            text-decoration: none;
+        }
+
+        /* Rodapé (Footer) */
+        footer {
+            background-color: var(--header-footer-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 5% 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-container { flex-direction: column; align-items: flex-start; }
+            .nav-links { flex-wrap: wrap; gap: 15px; margin-top: 10px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container { grid-template-columns: 1fr; }
+            .btn-assinar { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">CODEX // IA</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Introdução</a></li>
+                <li><a href="artigo-2-pilares-ia.html">3 Pilares</a></li>
+                <li><a href="#">Exemplos</a></li>
+                <li><a href="#">Newsletter</a></li>
+            </ul>
+            <a href="#" class="btn-assinar">Assinar Blog</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo do Artigo -->
+    <main class="article-container">
+        <div class="meta-info">
+            <span>PUBLICADO · 23/08/2026</span>
+            <span>TEMPO DE LEITURA · 6 MIN</span>
+            <span>CATEGORIA · INTELIGÊNCIA ARTIFICIAL</span>
+            <span>NÍVEL · INICIANTE</span>
+            <span>LOCAL · PARÁ / BR</span>
+        </div>
+
+        <h1>Os 3 Pilares da Inteligência Artificial: Como as máquinas realmente aprendem?</h1>
+
+        <p>No <a href="artigo-1.html">nosso primeiro artigo</a>, desmistificamos o conceito e respondemos à pergunta: <em>O que é Inteligência Artificial?</em> Agora que você já sabe que a IA não é mágica, a próxima pergunta lógica é: como ela "aprende" a fazer tudo isso?</p>
+
+        <p>Para entender como a IA passa de um software com regras rígidas para uma ferramenta inteligente, precisamos conhecer os três pilares que sustentam a tecnologia moderna. Vamos lá?</p>
+
+        <div class="highlight-box">
+            <strong>Recapitulando:</strong> No artigo anterior, vimos que a Inteligência Artificial é a capacidade de um computador simular a inteligência humana. Mas como ela adquire essa inteligência? A resposta está nos dados e nos algoritmos.
+        </div>
+
+        <!-- Imagem 1: Machine Learning -->
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1000&auto=format&fit=crop" alt="Gráficos e dados representando Machine Learning" class="article-image">
+
+        <h2>1. Machine Learning (Aprendizado de Máquina)</h2>
+        <p>Tradicionalmente, para um computador fazer algo, um programador precisava escrever regras rígidas: "Se acontecer A, faça B". O <strong>Machine Learning (ML)</strong> inverte essa lógica.</p>
+        <p>Em vez de programar as regras, damos ao computador uma quantidade gigantesca de dados e dizemos a ele: "Encontre os padrões".</p>
+        <p><strong>Exemplo prático:</strong> Se você quiser ensinar um computador a reconhecer um gato, você não descreve o que é um gato (orelhas pontudas, bigodes, etc.). Você mostra 10.000 fotos de gatos e 10.000 fotos de coisas que não são gatos. O algoritmo, sozinho, descobre o que faz um gato ser um gato.</p>
+
+        <!-- Imagem 2: Deep Learning / Redes Neurais -->
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" alt="Rede Neural Artificial Abstrata" class="article-image">
+
+        <h2>2. Deep Learning (Aprendizado Profundo)</h2>
+        <p>O Deep Learning é uma evolução do Machine Learning. Ele é inspirado na forma como o cérebro humano funciona, utilizando o que chamamos de <strong>Redes Neurais Artificiais</strong>.</p>
+        <p>Imagine uma rede com várias camadas. A primeira camada recebe os dados (como os olhos), as camadas intermediárias processam a informação (como o cérebro) e a última camada dá a resposta (como uma ação). O termo "profundo" vem do fato de essas redes terem muitas camadas escondidas processando dados de forma incrivelmente complexa.</p>
+        <p>É o Deep Learning que permite que carros autônomos "vejam" a rua, ou que o seu celular reconheça seu rosto para desbloquear a tela.</p>
+
+        <!-- Imagem 3: Processamento de Linguagem Natural -->
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" alt="Código e texto representando PLN" class="article-image">
+
+        <h2>3. Processamento de Linguagem Natural (PLN)</h2>
+        <p>Enquanto o ML e o Deep Learning lidam com números, imagens e padrões, o <strong>Processamento de Linguagem Natural (PLN)</strong> é a área da IA que foca na interação entre computadores e a linguagem humana (texto e fala).</p>
+        <p>O PLN é o que permite que o computador leia, entenda o contexto e gere texto em português, inglês ou qualquer outra língua.</p>
+        <p><strong>Exemplo prático:</strong> O ChatGPT! Quando você faz uma pergunta para ele, é o PLN que destrincha a sua frase, entende o que você está pedindo, busca a resposta na rede neural e formula uma resposta na nossa linguagem natural, e não em código de máquina.</p>
+
+        <div class="highlight-box">
+            <strong>Resumo dos Pilares:</strong><br>
+            1. <strong>Machine Learning:</strong> Aprende com dados e padrões.<br>
+            2. <strong>Deep Learning:</strong> Usa redes neurais para decisões complexas.<br>
+            3. <strong>PLN:</strong> Entende e fala a nossa língua.
+        </div>
+
+        <h2>Conclusão</h2>
+        <p>Quando juntamos o Aprendizado de Máquina, o Aprendizado Profundo e o Processamento de Linguagem Natural, temos o motor completo que move a Inteligência Artificial que usamos hoje. As máquinas não "pensam" sozinhas; elas analisam bilhões de dados em segundos para prever a melhor resposta possível.</p>
+        <p>Nos próximos artigos, vamos começar a colocar a mão na massa e ver como a IA pode nos ajudar a programar e ganhar produtividade. Até lá!</p>
+
+        <a href="index.html" class="back-btn">← Voltar para a página inicial</a>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>CODEX // IA</h3>
+                <p>Um blog focado em desmistificar a Inteligência Artificial para desenvolvedores e entusiastas. Aprenda de forma simples, prática e sem complicação.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Tópicos</h3>
+                <ul>
+                    <li><a href="#">Inteligência Artificial</a></li>
+                    <li><a href="#">Machine Learning</a></li>
+                    <li><a href="#">Deep Learning</a></li>
+                    <li><a href="#">Programação</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="index.html">Últimas Publicações</a></li>
+                    <li><a href="#">Arquivo</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Tags</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Parcerias</a></li>
+                    <li><a href="#">Sobre o Autor</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 CodeX Blog. Todos os direitos reservados. Feito com 💙 no Pará / BR.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
